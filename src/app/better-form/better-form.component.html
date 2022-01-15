@@ -1,0 +1,31 @@
+<p>better-form works!</p>
+<div>
+  <h2>Demo Form:userName</h2>
+  <form>
+    <div>
+      <label for="userNameInput">userName</label>
+      <input type="text" id="userNameInput" placeholder="userName name="userName>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<h2>Demo Form: with validations(explicit)</h2>
+<form [formGroup]="myForm"(ngSubmit)="onSubmit(myForm.value)" [class.error]="!myForm.valid && myForm.touched">
+<div [class.error]="!userName.valid && userName.touched" >
+  <label for="userNameInput">userName</label>
+
+  <input type="text" id="userNameInput" placeholder="userName"
+  [formControl]="$any(userName)">
+
+  <div *ngIf="userName.valid">userName is invalid</div>
+
+  <div *ngIf="userName.hasError('required')">userName is required</div>
+
+
+
+</div>
+<div *ngIf="!myForm.valid">Form is invalid</div>
+
+  <button type="submit" [disabled]="userName.invalid">Submit</button>
+</form>

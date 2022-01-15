@@ -1,0 +1,34 @@
+<fieldset>
+<p>article works!</p>
+<h3> article {{article.title}} </h3>
+<p>votes {{article.votes}}</p>
+<p>link {{article.link}}</p>
+<p>
+  <!--recupere un evènement sur le template article(component)-->
+  <button (click)="votesUp()">vote up</button>
+</p>
+<p>
+  <button (click)="votesDown()">vote Down</button>
+</p>
+<p>
+  <button (click)="delete(article.id)">Delete</button>
+</p>
+<p>
+  <button (click)="update()">update</button>
+</p>
+
+<form>
+  <div *ngIf="updatebp">
+    <h3 class="ui header">Update</h3>
+    <label for="title">Title:</label>
+      <input name="title"  #newTitle [value]="article.link">
+    <label for="link">Link:</label>
+      <input name="link" #newLink [value]="article.link">
+      <button (click)="updateA(newTitle,newLink,article.id)">Update</button>
+
+
+  </div>
+
+
+</form>
+</fieldset>
